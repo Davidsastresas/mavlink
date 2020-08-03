@@ -1380,6 +1380,40 @@
       <field type="uint32_t" name="seqno" enum="MAV_REMOTE_LOG_DATA_BLOCK_COMMANDS">Log data block sequence number.</field>
       <field type="uint8_t[200]" name="data">Log data block.</field>
     </message>
+    <!-- custom radio status AM telemetry -->
+    <message id="187" name="AM_TELEMETRY_HIGH_LAT">
+      <description>AM_telemetry SMS message</description>
+      <field type="uint8_t" name="base_mode" enum="MAV_MODE_FLAG" display="bitmask">Bitmap of enabled system modes.</field>
+      <field type="uint32_t" name="custom_mode" display="bitmask">A bitfield for use for autopilot-specific flags.</field>
+      <field type="uint8_t" name="landed_state" enum="MAV_LANDED_STATE">The landed state. Is set to MAV_LANDED_STATE_UNDEFINED if landed state is unknown.</field>
+      <field type="int16_t" name="roll" units="cdeg">roll</field>
+      <field type="int16_t" name="pitch" units="cdeg">pitch</field>
+      <field type="uint16_t" name="heading" units="cdeg">heading</field>
+      <field type="int8_t" name="throttle" units="%">throttle (percentage)</field>
+      <field type="int16_t" name="heading_sp" units="cdeg">heading setpoint</field>
+      <field type="int32_t" name="latitude" units="degE7">Latitude</field>
+      <field type="int32_t" name="longitude" units="degE7">Longitude</field>
+      <field type="int16_t" name="altitude_amsl" units="m">Altitude above mean sea level</field>
+      <field type="int16_t" name="altitude_sp" units="m">Altitude setpoint relative to the home position</field>
+      <field type="uint8_t" name="airspeed" units="m/s">airspeed</field>
+      <field type="uint8_t" name="airspeed_sp" units="m/s">airspeed setpoint</field>
+      <field type="uint8_t" name="groundspeed" units="m/s">groundspeed</field>
+      <field type="int8_t" name="climb_rate" units="m/s">climb rate</field>
+      <field type="uint8_t" name="gps_nsat">Number of satellites visible. If unknown, set to 255</field>
+      <field type="uint8_t" name="gps_fix_type" enum="GPS_FIX_TYPE">GPS Fix type.</field>
+      <field type="uint8_t" name="battery_remaining" units="%">Remaining battery (percentage)</field>
+      <field type="int8_t" name="temperature" units="degC">Autopilot temperature (degrees C)</field>
+      <field type="int8_t" name="temperature_air" units="degC">Air temperature (degrees C) from airspeed sensor</field>
+      <field type="uint8_t" name="failsafe">failsafe (each bit represents a failsafe where 0=ok, 1=failsafe active (bit0:RC, bit1:batt, bit2:GPS, bit3:GCS, bit4:fence)</field>
+      <field type="uint8_t" name="wp_num">current waypoint number</field>
+      <field type="uint16_t" name="wp_distance" units="m">distance to target</field>
+      <field type="uint8_t" name="rssi_gsm1">rssi gsm modem 1</field>
+      <field type="uint8_t" name="rssi_gsm2">rssi gsm modem 2</field>
+      <field type="uint8_t" name="rssi_gsm3">rssi gsm modem 3</field>
+      <field type="uint8_t" name="rssi_sbd">rssi sbd modem</field>
+      <field type="uint8_t" name="comp_status_bitmask">companion status bitmask</field>
+      <field type="uint8_t" name="telem_status_bitmask">telemetry status bitmask</field>
+    </message>
     <message id="185" name="REMOTE_LOG_BLOCK_STATUS">
       <description>Send Status of each log block that autopilot board might have sent.</description>
       <field type="uint8_t" name="target_system">System ID.</field>
